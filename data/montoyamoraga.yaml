@@ -1,0 +1,82 @@
+# datos de transparency, leídos por js/sketch.js con js-yaml
+# (libraries/js-yaml.min.js) para poblar el menú de index.html.
+#
+# schema:
+#   <categoría>:      cada clave de primer nivel es una opción del menú
+#     <campo>: valor  se muestra como "campo: valor". se acepta HTML.
+#
+# las categorías cicatrices y salud-física además muestran imágenes,
+# definidas en js/sketch.js. si se renombran acá, hay que renombrarlas allá.
+#
+# los valores van entre comillas cuando YAML los leería como otra cosa
+# (números como '3', fechas como '2018-02-02'), para que se muestren tal cual.
+# los campos vacíos se escriben ''.
+
+alergias:
+  alergia_0: picaduras de mosquito
+  alergia_1: camarones
+creencias:
+  dieta: veganismo
+  religión: ninguna
+  política: izquierda
+  partido-político: frente amplio
+nacimiento:
+  día: '3'
+  mes: '7'
+  año: '1989'
+  comuna: independencia
+  ciudad: santiago
+  país: chile
+sangre:
+  grupo: a2
+  rh: positivo
+contacto:
+  correo: montoyamoraga@gmail.com
+  sitio-web: https://montoyamoraga.io/
+  instagram: montoyamoraga
+  vimeo: montoyamoraga
+  github: montoyamoraga
+drogas-consumidas-alguna-vez:
+  alcohol: sí
+  cafeína: sí
+  tabaco: sí
+  marihuana: sí
+educación:
+  enseñanza-básica: the kent school
+  enseñanza-media: deutsche schule santiago
+  pregrado-licenciatura: licenciatura en ciencias de la ingeniería en ingeniería eléctrica, pontificia universidad católica de chile
+  pregrado-título-profesional: ingeniería civil electricista, pontificia universidad católica de chile
+  posgrado-1: master in professional studies, interactive telecommunications program, new york university
+  posgrado-2: master in media arts and sciences, poetic justice research group, media lab, massachusetts institute of technology
+  posgrado-3: doctorado en artes y humanidades, instituto de estudios avanzados, universidad de santiago de chile
+empleadores:
+  actual: universidad diego portales
+  anteriores: massachusetts institute of technology, new york university
+familia:
+  progenitore_0: maría bernardita moraga-armijo
+  progenitore_1: víctor ángel miro montoya-salas
+  hermanes: '0'
+  hijes: '0'
+salud-física:
+  examen-de-rutina-0-fecha: '2018-02-02'
+identidad:
+  género: ''
+  pronombres: elle
+legal:
+  primer-nombre: aarón
+  segundo-nombre: ''
+  apellidos: montoya-moraga
+  estado-civil: conviviente civil
+  nacionalidad: chilena
+  rut: 16.978.895-2
+  sexo-asignado-al-nacer: masculino
+cicatrices:
+  cicatriz_0: rodilla izquierda - corte - caída
+  cicatriz_1: mano izquierda - corte - jugando handball
+  cicatriz_2: brazo izquierdo - corte - choque de dron
+  cicatriz_3: mano izquierda - quemadura - soldadura
+versión:
+  día: '19'
+  mes: '10'
+  año: '2026'
+  número: 5.0.0

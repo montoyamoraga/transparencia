@@ -1,8 +1,8 @@
-// parse data from montoyamoraga.json
+// parse data from montoyamoraga.yaml
 
-//store json file
+//store yaml data
 let info = null;
-//store keys from the json file
+//store keys from the yaml data
 let keys = null;
 //store scar images
 //TODO: automate
@@ -15,23 +15,22 @@ let routinePanel0page0;
 let routinePanel0page1;
 let routinePanel0page2;
 
-//preload() runs first, once
-function preload() {
-  //load json file
-  info = loadJSON("./data/montoyamoraga.json");
-  scar0 = loadImage("./media/scars/scar0.jpg");
-  scar1 = loadImage("./media/scars/scar1.jpg");
-  scar2 = loadImage("./media/scars/scar2.jpg");
-  routinePanel0page0 = loadImage("./media/health-physical/routinepanel0-page0.jpg");
-  routinePanel0page1 = loadImage("./media/health-physical/routinepanel0-page1.jpg");
-  routinePanel0page2 = loadImage("./media/health-physical/routinepanel0-page2.jpg");
-}
+//setup() runs once
+//p5.js 2.x has no preload(), files are loaded with await inside async setup()
+async function setup() {
+  //load yaml file, parsed with js-yaml
+  let respuesta = await fetch("./data/montoyamoraga.yaml");
+  info = jsyaml.load(await respuesta.text());
+  scar0 = await loadImage("./media/scars/scar0.jpg");
+  scar1 = await loadImage("./media/scars/scar1.jpg");
+  scar2 = await loadImage("./media/scars/scar2.jpg");
+  routinePanel0page0 = await loadImage("./media/health-physical/routinepanel0-page0.jpg");
+  routinePanel0page1 = await loadImage("./media/health-physical/routinepanel0-page1.jpg");
+  routinePanel0page2 = await loadImage("./media/health-physical/routinepanel0-page2.jpg");
 
-//setup() runs once, after preload()
-function setup() {
   noCanvas();
 
-  //retrieve keys from json
+  //retrieve keys from yaml
   keys = Object.keys(info)
 
   //retrieve menu
@@ -83,33 +82,33 @@ function selectChange(selector) {
   }
 
 
-  //special case for scars
+  //special case for cicatrices
   //TODO: automate
-  if (keys[index] == "scars") {
-    currentQuery.innerHTML += "scar_0: <br/>";
+  if (keys[index] == "cicatrices") {
+    currentQuery.innerHTML += "cicatriz_0: <br/>";
     currentQuery.innerHTML += "<img src='https://raw.githubusercontent.com/montoyamoraga/transparency/master/media/scars/scar0.jpg' width=50%>"
     currentQuery.innerHTML += "<br />"
 
-    currentQuery.innerHTML += "scar_1: <br/>";
+    currentQuery.innerHTML += "cicatriz_1: <br/>";
     currentQuery.innerHTML += "<img src='https://raw.githubusercontent.com/montoyamoraga/transparency/master/media/scars/scar1.jpg' width=50%>"
     currentQuery.innerHTML += "<br />"
 
-    currentQuery.innerHTML += "scar_2: <br/>";
+    currentQuery.innerHTML += "cicatriz_2: <br/>";
     currentQuery.innerHTML += "<img src='https://raw.githubusercontent.com/montoyamoraga/transparency/master/media/scars/scar2.jpg' width=50%>"
     currentQuery.innerHTML += "<br />"
   }
-  //special case for health-physical
+  //special case for salud-física
   //TODO: automate
-  if (keys[index] == "health-physical") {
-    currentQuery.innerHTML += "routinepanel0-page0: <br/>";
+  if (keys[index] == "salud-física") {
+    currentQuery.innerHTML += "examen-de-rutina-0-página-0: <br/>";
     currentQuery.innerHTML += "<img src='https://raw.githubusercontent.com/montoyamoraga/transparency/master/media/health-physical/routinepanel0-page0.jpg' width=50%>"
     currentQuery.innerHTML += "<br />"
 
-    currentQuery.innerHTML += "routinepanel0-page1: <br/>";
+    currentQuery.innerHTML += "examen-de-rutina-0-página-1: <br/>";
     currentQuery.innerHTML += "<img src='https://raw.githubusercontent.com/montoyamoraga/transparency/master/media/health-physical/routinepanel0-page1.jpg' width=50%>"
     currentQuery.innerHTML += "<br />"
 
-    currentQuery.innerHTML += "routinepanel0-page2: <br/>";
+    currentQuery.innerHTML += "examen-de-rutina-0-página-2: <br/>";
     currentQuery.innerHTML += "<img src='https://raw.githubusercontent.com/montoyamoraga/transparency/master/media/health-physical/routinepanel0-page2.jpg' width=50%>"
     currentQuery.innerHTML += "<br />"
   }

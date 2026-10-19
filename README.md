@@ -10,7 +10,7 @@ transparency can be accessed at the website [montoyamoraga.io/transparency](http
 
 ## Technology
 
-transparency is a database built using [JSON](https://en.wikipedia.org/wiki/JSON), which is parsed with the [p5.js library](https://p5js.org/) on a website built using [HMTL5](https://en.wikipedia.org/wiki/HTML5), styled with [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets), populated with [JavaScript](https://en.wikipedia.org/wiki/JavaScript) and hosted with [GitHub Pages](https://pages.github.com/).
+transparency is a database built using [YAML](https://en.wikipedia.org/wiki/YAML), which is parsed with [js-yaml](https://github.com/nodeca/js-yaml) and the [p5.js library](https://p5js.org/) on a website built using [HMTL5](https://en.wikipedia.org/wiki/HTML5), styled with [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets), populated with [JavaScript](https://en.wikipedia.org/wiki/JavaScript) and hosted with [GitHub Pages](https://pages.github.com/).
 
 ## Thanks
 
