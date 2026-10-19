@@ -4,16 +4,6 @@
 let info = null;
 //store keys from the yaml data
 let keys = null;
-//store scar images
-//TODO: automate
-let scar0;
-let scar1;
-let scar2;
-//store routinepanel images
-//TODO: automate
-let routinePanel0page0;
-let routinePanel0page1;
-let routinePanel0page2;
 
 //setup() runs once
 //p5.js 2.x has no preload(), files are loaded with await inside async setup()
@@ -21,12 +11,6 @@ async function setup() {
   //load yaml file, parsed with js-yaml
   let respuesta = await fetch("./data/montoyamoraga.yaml");
   info = jsyaml.load(await respuesta.text());
-  scar0 = await loadImage("./media/scars/scar0.jpg");
-  scar1 = await loadImage("./media/scars/scar1.jpg");
-  scar2 = await loadImage("./media/scars/scar2.jpg");
-  routinePanel0page0 = await loadImage("./media/health-physical/routinepanel0-page0.jpg");
-  routinePanel0page1 = await loadImage("./media/health-physical/routinepanel0-page1.jpg");
-  routinePanel0page2 = await loadImage("./media/health-physical/routinepanel0-page2.jpg");
 
   noCanvas();
 
@@ -86,33 +70,39 @@ function selectChange(selector) {
   //TODO: automate
   if (keys[index] == "cicatrices") {
     currentQuery.innerHTML += "cicatriz_0: <br/>";
-    currentQuery.innerHTML += "<img src='https://raw.githubusercontent.com/montoyamoraga/transparency/master/media/scars/scar0.jpg' width=50%>"
+    currentQuery.innerHTML += imagen("./media/scars/scar0.webp")
     currentQuery.innerHTML += "<br />"
 
     currentQuery.innerHTML += "cicatriz_1: <br/>";
-    currentQuery.innerHTML += "<img src='https://raw.githubusercontent.com/montoyamoraga/transparency/master/media/scars/scar1.jpg' width=50%>"
+    currentQuery.innerHTML += imagen("./media/scars/scar1.webp")
     currentQuery.innerHTML += "<br />"
 
     currentQuery.innerHTML += "cicatriz_2: <br/>";
-    currentQuery.innerHTML += "<img src='https://raw.githubusercontent.com/montoyamoraga/transparency/master/media/scars/scar2.jpg' width=50%>"
+    currentQuery.innerHTML += imagen("./media/scars/scar2.webp")
     currentQuery.innerHTML += "<br />"
   }
   //special case for salud-física
   //TODO: automate
   if (keys[index] == "salud-física") {
     currentQuery.innerHTML += "examen-de-rutina-0-página-0: <br/>";
-    currentQuery.innerHTML += "<img src='https://raw.githubusercontent.com/montoyamoraga/transparency/master/media/health-physical/routinepanel0-page0.jpg' width=50%>"
+    currentQuery.innerHTML += imagen("./media/health-physical/routinepanel0-page0.webp")
     currentQuery.innerHTML += "<br />"
 
     currentQuery.innerHTML += "examen-de-rutina-0-página-1: <br/>";
-    currentQuery.innerHTML += "<img src='https://raw.githubusercontent.com/montoyamoraga/transparency/master/media/health-physical/routinepanel0-page1.jpg' width=50%>"
+    currentQuery.innerHTML += imagen("./media/health-physical/routinepanel0-page1.webp")
     currentQuery.innerHTML += "<br />"
 
     currentQuery.innerHTML += "examen-de-rutina-0-página-2: <br/>";
-    currentQuery.innerHTML += "<img src='https://raw.githubusercontent.com/montoyamoraga/transparency/master/media/health-physical/routinepanel0-page2.jpg' width=50%>"
+    currentQuery.innerHTML += imagen("./media/health-physical/routinepanel0-page2.webp")
     currentQuery.innerHTML += "<br />"
   }
 
+}
+
+//returns the html for an image in media/
+//lazy loading and decoding in the background so the menu stays responsive
+function imagen(ruta) {
+  return "<img src='" + ruta + "' width=50% loading='lazy' decoding='async'>";
 }
 
 //draw() runs in a loop, after setup()
