@@ -1,16 +1,16 @@
-# transparency
+# transparencia
 
 ## Acerca de
 
-transparency es un proyecto en curso de [aarón montoya-moraga](https://montoyamoraga.io/).
+transparencia es un proyecto de [aarón montoya-moraga](https://montoyamoraga.io/).
 
-transparency es un autorretrato multimedia en constante evolución. Actualmente incluye texto e imágenes con información sobre la identidad, creencias, salud, educación, empleo y contacto de su autore, entre otras cosas.
+transparencia es un autorretrato multimedia en constante evolución. Actualmente incluye texto e imágenes con información sobre la identidad, creencias, salud, educación, empleo y contacto de su autore, entre otras cosas.
 
-transparency se puede visitar en [montoyamoraga.io/transparency](https://montoyamoraga.io/transparency/), y el código y la historia del proyecto viven en el repositorio [github.com/montoyamoraga/transparency](https://github.com/montoyamoraga/transparency).
+transparencia se puede visitar en <https://montoyamoraga.io/transparencia/>, y el código y la historia del proyecto viven en el repositorio <https://github.com/montoyamoraga/transparencia>.
 
 ## Tecnología
 
-transparency es una base de datos escrita en [YAML](https://es.wikipedia.org/wiki/YAML), leída con [js-yaml](https://github.com/nodeca/js-yaml) y [p5.js](https://p5js.org/) en un sitio web hecho con [HTML5](https://es.wikipedia.org/wiki/HTML5), con estilo en [CSS](https://es.wikipedia.org/wiki/Hojas_de_estilo_en_cascada), poblado con [JavaScript](https://es.wikipedia.org/wiki/JavaScript) y publicado con [GitHub Pages](https://pages.github.com/).
+transparencia es una base de datos escrita en [YAML](https://es.wikipedia.org/wiki/YAML), leída con [js-yaml](https://github.com/nodeca/js-yaml) y [p5.js](https://p5js.org/) en un sitio web hecho con [HTML5](https://es.wikipedia.org/wiki/HTML5), con estilo en [CSS](https://es.wikipedia.org/wiki/Hojas_de_estilo_en_cascada), poblado con [JavaScript](https://es.wikipedia.org/wiki/JavaScript) y publicado con [GitHub Pages](https://pages.github.com/).
 
 No usa herramientas de compilación ni dependencias instaladas: las bibliotecas están copiadas en la carpeta `libraries/`.
 
