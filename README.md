@@ -1,25 +1,51 @@
 # transparency
 
-## About
+## Acerca de
 
-transparency is an ongoing project by [Aarón Montoya-Moraga](http://montoyamoraga.io/)
+transparency es un proyecto en curso de [aarón montoya-moraga](https://montoyamoraga.io/).
 
-transparency is an ever-evolving multimedia self-portrait. It currently includes text and images, with information about the author's identity, beliefs, health, employment, contact, among others.
+transparency es un autorretrato multimedia en constante evolución. Actualmente incluye texto e imágenes con información sobre la identidad, creencias, salud, educación, empleo y contacto de su autore, entre otras cosas.
 
-transparency can be accessed at the website [montoyamoraga.io/transparency](http://montoyamoraga.io/transparency/) and the code and history of the project lives at the repository [github.com/montoyamoraga/transparency](https://github.com/montoyamoraga/transparency)
+transparency se puede visitar en [montoyamoraga.io/transparency](https://montoyamoraga.io/transparency/), y el código y la historia del proyecto viven en el repositorio [github.com/montoyamoraga/transparency](https://github.com/montoyamoraga/transparency).
 
-## Technology
+## Tecnología
 
-transparency is a database built using [YAML](https://en.wikipedia.org/wiki/YAML), which is parsed with [js-yaml](https://github.com/nodeca/js-yaml) and the [p5.js library](https://p5js.org/) on a website built using [HMTL5](https://en.wikipedia.org/wiki/HTML5), styled with [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets), populated with [JavaScript](https://en.wikipedia.org/wiki/JavaScript) and hosted with [GitHub Pages](https://pages.github.com/).
+transparency es una base de datos escrita en [YAML](https://es.wikipedia.org/wiki/YAML), leída con [js-yaml](https://github.com/nodeca/js-yaml) y [p5.js](https://p5js.org/) en un sitio web hecho con [HTML5](https://es.wikipedia.org/wiki/HTML5), con estilo en [CSS](https://es.wikipedia.org/wiki/Hojas_de_estilo_en_cascada), poblado con [JavaScript](https://es.wikipedia.org/wiki/JavaScript) y publicado con [GitHub Pages](https://pages.github.com/).
 
-## Thanks
+No usa herramientas de compilación ni dependencias instaladas: las bibliotecas están copiadas en la carpeta `libraries/`.
 
-* [Emma Rae Norton](http://marceldochamp.net/) for being an inspiring classmate at the [you.js](https://github.com/SFPC/workshops/tree/master/YOU_JS) workshop taught at [SFPC](http://sfpc.io/) by [Sam Lavigne](http://lav.io/).
-* [Guillermo Montecinos-Pe&#xf1;a](https://guillemontecinos.github.io/) for moral support.
-* j. for being supportive and encouraging.
-* [Lauren McCarthy](http://lauren-mccarthy.com/) for creating [p5.js](https://p5js.org/).
-* [Nicol&#xe1;s Escarpentier](http://nicolaspe.com/) for their great suggestions.
-* [Rebecca (Marks) Leopold](http://site.rebeccaleopold.com/) for making me figure out that these type of projects I do are actually self-portraits.
-* [Roy MacDonald](http://roymacdonald.github.io/) for cool feedback
-* [Sam Lavigne](http://lav.io/) for the [you.js](https://github.com/SFPC/workshops/tree/master/YOU_JS) workshop he taught at [SFPC](http://sfpc.io/) where I got inspired to start this project.
-* [Wipawe Sirikolkarn](http://www.wipawe.com/) for making sure I am safe.
+## Estructura
+
+- `index.html`: la página, con su estilo.
+- `js/sketch.js`: lee los datos y llena el menú y el contenido de cada categoría.
+- `data/montoyamoraga.yaml`: los datos del autorretrato.
+- `media/`: imágenes de las categorías cicatrices y salud-física.
+- `libraries/`: p5.js 2.3.4 y js-yaml 4.1.1.
+
+## Editar los datos
+
+Cada clave de primer nivel de `data/montoyamoraga.yaml` es una opción del menú, y cada campo dentro de ella se muestra como `campo: valor`. El comentario al inicio del archivo explica el formato y cuándo usar comillas.
+
+Las imágenes de las categorías cicatrices y salud-física están definidas en `js/sketch.js`. Si se renombran esas categorías en el YAML, hay que renombrarlas también ahí.
+
+## Ver el sitio localmente
+
+El sitio carga los datos con `fetch`, así que no funciona abriendo `index.html` directamente desde el disco. Hay que servirlo con un servidor local, por ejemplo:
+
+```sh
+python3 -m http.server
+```
+
+y abrir [http://localhost:8000](http://localhost:8000).
+
+## Agradecimientos
+
+- [Emma Rae Norton](http://marceldochamp.net/), por ser una presencia inspiradora en el taller [you.js](https://github.com/SFPC/workshops/tree/master/YOU_JS) dictado en [SFPC](http://sfpc.io/) por [Sam Lavigne](http://lav.io/).
+- [Guillermo Montecinos-Peña](https://guillemontecinos.github.io/), por el apoyo moral.
+- j., por el apoyo y el ánimo.
+- [Lauren McCarthy](http://lauren-mccarthy.com/), por crear [p5.js](https://p5js.org/).
+- [Nicolás Escarpentier](http://nicolaspe.com/), por sus excelentes sugerencias.
+- [Rebecca (Marks) Leopold](http://site.rebeccaleopold.com/), por hacerme darme cuenta de que este tipo de proyectos que hago son en realidad autorretratos.
+- [Roy MacDonald](http://roymacdonald.github.io/), por sus buenos comentarios.
+- [Sam Lavigne](http://lav.io/), por el taller [you.js](https://github.com/SFPC/workshops/tree/master/YOU_JS) que dictó en [SFPC](http://sfpc.io/), donde me inspiré para empezar este proyecto.
+- [Wipawe Sirikolkarn](http://www.wipawe.com/), por asegurarse de que yo esté a salvo.

@@ -5,7 +5,8 @@
     <meta charset="utf-8" />
     <!-- favicon -->
     <link rel="icon" type="image/png" href="./media/favicon.png" />
-    <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+    <!-- viewport, so phones use their real width instead of a zoomed-out desktop view -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="./libraries/p5.js"></script>
     <script src="./libraries/js-yaml.min.js"></script>
     <script src="./js/sketch.js"></script>
@@ -20,8 +21,10 @@
         margin: 0;
       }
       p, h1, h2, h3, h4, h5, h6, option {
-          /*set font to Avantgarde*/
-          font-family: Avantgarde;
+          /*set font to Avantgarde, with fallbacks for phones that lack it*/
+          font-family: Avantgarde, "Century Gothic", sans-serif;
+          /*break long words and links instead of overflowing on narrow screens*/
+          overflow-wrap: anywhere;
           /*normal text, no italics, no bold*/
           font-weight: normal;
           /*centered text*/
@@ -40,21 +43,36 @@
           /*first reset, then set actual value wanted*/
           /*margin: 0.3em;*/
       }
+      /*center the content vertically, and let it grow and scroll when long*/
       #everything {
-        display: table;
-        position: absolute;
-        top: 50%;
-        width: 100%;
+        box-sizing: border-box;
+        min-height: 100vh;
+        max-width: 40em;
+        margin: 0 auto;
+        padding: 1em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
       select {
         display: block;
         margin: 0 auto;
+        max-width: 100%;
+        /*16px or larger stops iOS from zooming in when the menu is tapped*/
+        font-size: 16px;
+        /*bigger touch target*/
+        padding: 0.5em 1em;
+      }
+      /*images fill the column on phones, instead of the 50% set in sketch.js*/
+      #currentQuery img {
+        width: 100%;
+        height: auto;
       }
 
       a {
       /*reset of format*/
       text-decoration: none;
-      font-family: Avantgarde;
+      font-family: Avantgarde, "Century Gothic", sans-serif;
       color: black;
       margin: 0;
       outline: 0;
